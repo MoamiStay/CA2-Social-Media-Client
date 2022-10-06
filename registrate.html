@@ -126,7 +126,7 @@
       </div>
     </header>
 
-    <section id="login">
+    <section id="register-user">
       <div class="container p-3 login-box align-items-center mt-5">
         <form class="col-md-5 mt-5">
           <div>
@@ -141,90 +141,49 @@
                 required
               />
             </div>
-          </div>
+            <label for="validationDefaultEmail" class="form-label">Email</label>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                id="validationDefaultEmail"
+                required
+              />
+            </div>
 
-          <div class="">
-            <label for="validationDefault01" class="form-label">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="validationDefault01"
-              required
-            />
-            <div class="row justify-content-between">
-              <a href="registrate.html" class="col">Registrer</a>
-              <a href="#" class="col">Forgot password</p>
+            <div class="">
+              <label for="validationDefault01" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="validationDefault01"
+                required
+              />
+              <label for="validationDefault01" class="form-label"
+                >Confirm password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="validationDefault01"
+                required
+              />
             </div>
           </div>
 
           <div class="col-12">
             <a href="index.html"
               ><button class="btn btn-primary" type="submit">
-                submit form
+                Register user
               </button></a
             >
-            <a href="index.html" class="btn btn-primary">Log In</a>
+            <a href="index.html" class="btn btn-primary">Back to log in</a>
           </div>
         </form>
       </div>
     </section>
-
-    <main>
-      <div class="mb-5 col-lg-6 top-buffer">
-        <h1>Feed</h1>
-        <button type="button">Friends  posts</button>
-        <button type="button">All posts</button>
-        <div class="mb-5">
-          <div>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              placeholder="create new post"
-            ></textarea>
-            <div class="p-1 row">
-              <form class="col-2" action="/action_page.php">
-                <input type="file" id="myFile" name="filename" />
-                <input type="submit" />
-              </form>
-              <button type="button" class="col-3 btn btn-primary">Post</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-
-        <div class="mb-5 col-lg-6 card">
-          <div class="card-body">
-            <div class="pf-image-sm align-items-center p-1">
-              <img
-                src="images/profilepic.png"
-                class="col card-img-top"
-                alt="profile_image"
-              />
-              <h5 class="col card-title p-2">Username</h5>
-              <button type="button">Edit post</button>
-              <button type="button">Delete post</button>
-            </div>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <img
-              src="images/fjell.jpg"
-              class="card-img-top"
-              alt="content_image"
-            />
-          </div>
-          <div class="card-body">
-            <a href="#" class="card-link">like</a>
-            <a href="#" class="card-link">comment</a>
-            <a href="#" class="card-link">Save</a>
-          </div>
-        </div>
-      </div>
-    </main>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
