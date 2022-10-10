@@ -7,7 +7,9 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="./css/custom.min.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./js/login.js" defer></script>
+    <script src="./js/posts.js" defer></script>
   </head>
   <body>
     <header class="sticky-top">
@@ -57,7 +59,6 @@
               </li> -->
               <li>
                 <button type="button" id="logoutBtn">Log Out</button>
-                <a class="dropdown-item" href="index.html">Log out</a>
               </li>
             </ul>
           </div>
@@ -68,19 +69,19 @@
         <div>
           <h3>Online</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
           <h3 class="top-buffer">Chat bubbles</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
         </div>
         <div class="col card top-buffer">
@@ -131,13 +132,13 @@
         <form class="col-md-5 mt-5">
           <div>
             <label for="validationDefaultUsername" class="form-label"
-              >Username</label
+              >Email</label
             >
             <div class="input-group">
               <input
-                type="text"
+                type="email"
                 class="form-control"
-                id="validationDefaultUsername"
+                id="validationDefaultEmail"
                 required
               />
             </div>
@@ -159,11 +160,10 @@
 
           <div class="col-12">
             <a href="index.html"
-              ><button class="btn btn-primary" type="submit">
+              ><button class="btn btn-primary" id="submitBtn" type="submit">
                 submit form
               </button></a
             >
-            <a href="index.html" class="btn btn-primary">Log In</a>
           </div>
         </form>
       </div>
@@ -193,8 +193,7 @@
         </div>
       </div>
 
-      <div class="container">
-
+      <div class="post-container">
         <div class="mb-5 col-lg-6 card">
           <div class="card-body">
             <div class="pf-image-sm align-items-center p-1">

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/custom.min.css" />
+    <script
+      src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="./js/post.js" defer></script>
+    <!-- <script src="./js/login.js" defer></script>
+    <script src="./js/posts.js" defer></script> -->
+  </head>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">logo</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse p-3" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" href="#">Discover</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link active" href="profile.html">Profile</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" href="#">Friends</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Settings</a>
+              </li> -->
+              <li>
+                <button type="button" id="logoutBtn">Log Out</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="col-sm-5 float-end d-none d-lg-block top-buffer">
+        <div>
+          <h3>Online</h3>
+          <div>
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+          </div>
+          <h3 class="top-buffer">Chat bubbles</h3>
+          <div>
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+          </div>
+        </div>
+        <div class="col card top-buffer">
+          <div class="card-body">
+            <div class="pf-image-sm align-items-center">
+              <img
+                src="images/profilepic.png"
+                class="col card-img-top"
+                alt="profile_image"
+              />
+              <h5 class="col card-title">Username</h5>
+            </div>
+
+            <div class="justify-content-end top-buffer">
+              <p class="card-text border w-50">
+                Prøvde å se om jeg kunne lage en chat-box
+              </p>
+              <p class="card-text border w-50">Så hvordan gikk det?</p>
+              <p class="card-text border w-50">...</p>
+              <p class="card-text border w-50">it's a work in progress</p>
+              <p class="card-text border w-50">
+                Skjønner.. ikke så bra da altså? med andre ord
+              </p>
+            </div>
+
+            <div class="col-md-12 top-buffer">
+              <div class="p-1 row">
+                <p class="col-2">image</p>
+                <p class="col-2">link</p>
+                <textarea
+                  class="form-control w-50"
+                  id="exampleFormControlTextarea1"
+                  rows="1"
+                  placeholder="..."
+                ></textarea>
+                <button type="button" class="col-2 btn btn-primary">
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1></h1>
+      <div id="post"></div>
+    </main>
+  </body>
+</html>
