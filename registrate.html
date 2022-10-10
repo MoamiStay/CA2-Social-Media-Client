@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="./css/custom.min.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/register.js" defer></script>
   </head>
   <body>
     <header class="sticky-top">
@@ -68,19 +69,19 @@
         <div>
           <h3>Online</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
           <h3 class="top-buffer">Chat bubbles</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
         </div>
         <div class="col card top-buffer">
@@ -161,24 +162,27 @@
                 id="validationDefault01"
                 required
               />
-              <label for="validationDefault01" class="form-label"
+              <!-- <label for="validationDefault02" class="form-label"
                 >Confirm password</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="validationDefault01"
+                id="validationDefault02"
                 required
-              />
+              /> -->
             </div>
           </div>
 
           <div class="col-12">
-            <a href="index.html"
-              ><button class="btn btn-primary" type="submit">
-                Register user
-              </button></a
+            <button
+              class="btn btn-primary"
+              id="submit-user"
+              name="submit-user"
+              type="submit"
             >
+              Register user
+            </button>
             <a href="index.html" class="btn btn-primary">Back to log in</a>
           </div>
         </form>
