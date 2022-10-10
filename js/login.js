@@ -58,11 +58,9 @@ loginBtn.addEventListener("click", (event) => {
         email: email,
         password: password,
     }
-
     // console.log(userToLogin);
     loginUser(loginUrl, userToLogin);
 });
-
 
 
 logoutBtn.addEventListener("click", (event) => {

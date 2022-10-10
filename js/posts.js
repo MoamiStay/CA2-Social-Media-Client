@@ -60,7 +60,9 @@ async function getWithToken(url) {
                 <button type="button">Edit post</button>
                 <button type="button">Delete post</button>
               </div>
+              <a href="../post.html?id=${item.id}">
               <p class="card-text">${item.body}</p>
+              </a>
             </div>
             <div class="card-body">
               <a href="#" class="card-link">like</a>
