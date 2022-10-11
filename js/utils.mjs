@@ -2,11 +2,7 @@
 fetch posts
 
 authenticate username/email/password
-
-
-
 */
-
 
 
 const form = document.querySelector("form#messageForm"); 

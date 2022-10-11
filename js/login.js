@@ -1,6 +1,4 @@
 /*
-check if user is logged in. If not then don't show content on main page. happens automatically??
-
 checkbox* do you wanna stay logged in? 
 - save token to localstorage or sessionstorage
 (or? save token to localstorage in registration, then get token later?)
@@ -31,8 +29,10 @@ async function loginUser(url, userData) {
         const json = await response.json();
         // console.log(json);
         // console.log(json.accessToken);
+        const userName = json.name;
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("userName", userName);
     } catch (error) {
         console.log(error);
     } 
@@ -68,5 +68,6 @@ logoutBtn.addEventListener("click", (event) => {
     header.style.display = "none";
     loginForm.style.display = "block";
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("userName");
 });
 

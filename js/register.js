@@ -18,7 +18,6 @@ const API_BASE_URL = "https://nf-api.onrender.com";
 const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
 
 
-
 async function registerUser(url, userData) {
     console.log(userData);
     try {
@@ -55,9 +54,3 @@ const userToRegister = {
 
 registerUser(registerUrl, userToRegister);
 });
-
-
-
-/*
- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzkxL…E3MX0.DwXoJZuqJnLAYcr2Al16hRNcVM2Fx0_cMtuJ4sH7qLg
- */

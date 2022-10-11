@@ -10,6 +10,7 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="./js/login.js" defer></script>
     <script src="./js/posts.js" defer></script>
+    <!-- <script src="./js/utils.mjs" type="module" defer></script> -->
   </head>
   <body>
     <header class="sticky-top">
@@ -176,25 +177,25 @@
         <button type="button">All posts</button>
         <div class="mb-5">
           <div>
+            <input type="text" class="form-control" id="post-title" placeholder="Title for your post">
             <textarea
               class="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
               placeholder="create new post"
-            ></textarea>
+            >Hent VALUE fra dette feltet og legg d inn i posts.js fila</textarea>
             <div class="p-1 row">
               <form class="col-2" action="/action_page.php">
                 <input type="file" id="myFile" name="filename" />
-                <input type="submit" />
               </form>
-              <button type="button" class="col-3 btn btn-primary">Post</button>
+              <button id="post-button" type="button" class="col-3 btn btn-primary">Post</button>
             </div>
           </div>
         </div>
       </div>
 
       <div class="post-container">
-        <div class="mb-5 col-lg-6 card">
+        <!-- <div class="mb-5 col-lg-6 card">
           <div class="card-body">
             <div class="pf-image-sm align-items-center p-1">
               <img
@@ -221,7 +222,7 @@
             <a href="#" class="card-link">comment</a>
             <a href="#" class="card-link">Save</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 
