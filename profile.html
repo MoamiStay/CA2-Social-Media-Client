@@ -7,6 +7,9 @@
     <title>Profile</title>
 
     <link rel="stylesheet" href="./css/custom.min.css" />
+    <!-- <script src="./js/post.js" defer></script> -->
+    <script src="./js/posts.js" defer></script>
+    <script src="./js/profile.js" defer></script>
   </head>
 
   <body class="container-lg">
@@ -68,19 +71,19 @@
         <div>
           <h3>Online</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
           <h3 class="top-buffer">Chat bubbles</h3>
           <div>
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
-            <img src="..." class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
+            <img src="#" class="rounded" alt="user" />
           </div>
         </div>
         <div class="col card top-buffer">
@@ -136,7 +139,7 @@
                 class="card-img-top rounded"
                 alt="pf_image"
               />
-              <h5 class="card-title p-3">Username</h5>
+              <h5 id="my-name" class="card-title p-3">Username</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Status...</li>
@@ -173,32 +176,7 @@
           </div>
         </div>
 
-        <div class="container">
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-        </div>
+        <div id="profile-container"></div>
 
         <div class="col-md-3 d-none d-lg-block">
           <h2 class="top-buffer">Friends</h2>
@@ -229,6 +207,11 @@
       </div>
     </main>
 
+    <script>
+      const mainContent = (document.querySelector("main").style.display =
+        "block");
+      const header = (document.querySelector("header").style.display = "block");
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
