@@ -19,7 +19,7 @@ const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
 
 
 async function registerUser(url, userData) {
-    console.log(userData);
+    // console.log(userData);
     try {
         const postData = {
             method: "POST",
@@ -29,9 +29,9 @@ async function registerUser(url, userData) {
             body: JSON.stringify(userData),
         };
         const response = await fetch(url, postData);
-        console.log(response);
+        // console.log(response);
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
     } catch (error) {
         console.log(error);
     }

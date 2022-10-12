@@ -175,23 +175,20 @@
         <h1>Feed</h1>
         <button type="button">Friends  posts</button>
         <button type="button">All posts</button>
-        <div class="mb-5">
-          <div>
+        <form class="p-2 col-12" action="/action_page.php">
             <input type="text" class="form-control" id="post-title" placeholder="Title for your post">
             <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
+              class="mb-2 mt-2 form-control"
+              id="message"
+              name="message"
               rows="3"
               placeholder="create new post"
-            >Hent VALUE fra dette feltet og legg d inn i posts.js fila</textarea>
-            <div class="p-1 row">
-              <form class="col-2" action="/action_page.php">
-                <input type="file" id="myFile" name="filename" />
-              </form>
-              <button id="post-button" type="button" class="col-3 btn btn-primary">Post</button>
+            ></textarea>
+            <!-- <input type="text" class="form-control" id="post-media" placeholder="Image Link"> -->
+            <div class="p-2 row">
+                <button id="post-button" type="button" class="m-2 p-2 col-3 btn btn-primary">Post</button>
             </div>
-          </div>
-        </div>
+        </form>
       </div>
 
       <div class="post-container">

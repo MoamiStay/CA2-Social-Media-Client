@@ -1,15 +1,11 @@
-/*
-
-- view posts on details page: (post.html)***
-
-(comment on post)
-
- */
 const outElement = document.querySelector("div#post");
+const deletePostBtn = document.querySelector("#delete-button");
 let post = "";
 
 let params = new URLSearchParams(document.location.search);
 let id = params.get("id");
+
+const deleteUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 
 async function getPost() {
     try {
@@ -26,12 +22,12 @@ async function getPost() {
     // console.log(response);
     const json = await response.json();
     post = json;
-    console.log(post);
+    // console.log(post);
     } catch (error) {
         console.log(error);
     }
     try {
-      console.log(post);
+      // console.log(post);
         outElement.innerHTML = `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
@@ -43,8 +39,7 @@ async function getPost() {
             />
             <h5 class="col card-title p-2">${post.author.name}</h5>
             <p>${post.created}</p>
-            <button type="button">Edit post</button>
-            <button type="button">Delete post</button>
+            <a href="../edit.html?id=${post.id}" >Edit</a>
           </div>
           <a href="../post.html?id=${post.id}">
           <p class="card-text">${post.body}</p>
@@ -63,3 +58,29 @@ async function getPost() {
 };
 
 getPost();
+
+
+
+
+
+async function deletePost(url) {
+  try {
+  const token = localStorage.getItem("accessToken");
+  const fetchOptions = {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+      },
+  };
+  const response = await fetch(url, fetchOptions);
+  console.log(response);
+  const json = await response.json();
+  post = json;
+  console.log(post);
+  } catch (error) {
+      console.log(error);
+  }
+};
+
+deletePostBtn.addEventListener("click", (event) => {deletePost(deleteUrl)});
