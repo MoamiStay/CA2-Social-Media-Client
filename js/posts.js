@@ -4,10 +4,15 @@ const postBtn = document.querySelector("#post-button");
 const textArea = document.querySelector("#message");
 const postTitle = document.querySelector("#post-title");
 const postMedia = document.querySelector("#post-media");
+const searchBar = document.querySelector("#search-bar");
 const postsUrl = `https://nf-api.onrender.com/api/v1/social/posts/?_author=true&_comments=true&_reactions=true`;
 const createPostUrl = `https://nf-api.onrender.com/api/v1/social/posts`;
 let posts = "";
 const deleteBtn = document.querySelector("#delete-button");
+
+searchBar.addEventListener("keyup", (event) => {
+  console.log(searchBar.value);
+  filterPosts()});
 
 async function getWithToken(url) {
   try {
@@ -34,36 +39,20 @@ async function getWithToken(url) {
   } catch (error) {
       console.log(error);
   }
+filterPosts();
+};
+
+getWithToken(postsUrl);
+
+
+
+async function filterPosts() {
   try {
-      // console.log(posts);
-      for(item of posts) {
-        const myName = localStorage.getItem("userName");
-        if (item.author.name !== myName) {
-          content.innerHTML += `
-          <div class="mb-5 col-lg-6 card">
-          <div class="card-body">
-            <div class="pf-image-sm align-items-center p-1">
-              <img
-                src="images/profilepic.png"
-                class="col card-img-top"
-                alt="profile_image"
-              />
-              <h5 class="col card-title p-2">${item.author.name}</h5>
-              <p>${item.created}</p>
-            </div>
-            <a href="../post.html?id=${item.id}">
-            <p class="card-text">${item.body}</p>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="#" class="card-link">like</a>
-            <a href="#" class="card-link">comment</a>
-            <a href="#" class="card-link">Save</a>
-          </div>
-        </div>
-          `
-      } else if (item.author.name === myName) { // move this section to profile
-      content.innerHTML += `
+    // console.log(posts);
+    content.innerHTML = "";
+    for(item of posts) {
+      if (searchBar.value === "" || item.author.name.startsWith(searchBar.value, 0)) {
+        content.innerHTML += `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
           <div class="pf-image-sm align-items-center p-1">
@@ -86,14 +75,25 @@ async function getWithToken(url) {
         </div>
       </div>
         `
-      }
-    }
-  } catch (error) {
-      console.log(error);
+    } 
   }
-};
+  } catch (error) {
+    console.log(error);
+}
+}
 
-getWithToken(postsUrl);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function getPfImg() {
