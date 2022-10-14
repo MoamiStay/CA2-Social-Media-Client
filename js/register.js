@@ -34,12 +34,56 @@ async function registerUser(url, userData) {
         // console.log(json);
     } catch (error) {
         console.log(error);
+        /*
+        if (email is already registered) {
+            innerHTML = "There is already a registrered user with this email address"
+        } else {
+            innerHTML = "Registration unsuccessful"
+        }
+        */
     }
-}
+};
+
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("You clicked submit");
+    // console.log("You clicked submit");
+
+
+/* VALIDATION 
+
+
+    if (getUser.value.trim() === moreThan3Charachters) {
+        const username = getUser.value
+    } else {
+        innerHTML = "Username must be more than 3 characters and not include any spaces"
+    };
+
+    if (getEmail.value.trim() === regEx + last part of string is "noroff.no" or "stud.noroff.no") {
+        const email = getEmail.value.trim();
+    } else {
+        innerHTML = "Please enter valid mail"
+    };
+
+    if (getPass.value.trim() === regEx) {
+        const password = getPass.value.trim();
+    } else {
+        innerHTML = "Please enter valid password. Must include: ...."
+    };
+
+    if (username && email && password) {
+    const userToRegister = {
+        name: username,
+        email: email,
+        password: password,
+     } 
+    registerUser(registerUrl, userToRegister);
+    } else {
+        innerHTML = "Registration unsuccessful"
+    }
+});
+
+*/
 
 const username = getUser.value.trim();
 const email = getEmail.value.trim();

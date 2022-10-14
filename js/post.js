@@ -1,5 +1,6 @@
 const outElement = document.querySelector("div#post");
 const deletePostBtn = document.querySelector("#delete-button");
+const EditPostBtn = document.querySelector("#edit-button");
 let post = "";
 
 let params = new URLSearchParams(document.location.search);
@@ -27,35 +28,97 @@ async function getPost() {
         console.log(error);
     }
     try {
-      // console.log(post);
-        outElement.innerHTML = `
-        <div class="mb-5 col-lg-6 card">
-        <div class="card-body">
-          <div class="pf-image-sm align-items-center p-1">
+      // console.log(posts);
+          if (post.media !== "") {
+          outElement.innerHTML += `
+          <div class="mb-5 col-lg-6 card">
+          <div class="card-body">
+            <div class="pf-image-sm align-items-center p-1">
+              <img
+                src="images/profilepic.png"
+                class="col card-img-top"
+                alt="profile_image"
+              />
+              <h5 class="col card-title p-2">${post.author.name}</h5>
+              <a href="../edit.html">Edit</a>
+            </div>
+            <div>
+            <h4>${post.title}</h4>
+            <p class="card-text">${post.body}</p>
             <img
-              src="${post.author.avatar}"
-              class="col card-img-top"
-              alt="profile_image"
-            />
-            <h5 class="col card-title p-2">${post.author.name}</h5>
-            <p>${post.created}</p>
-            <a href="../edit.html?id=${post.id}" >Edit</a>
+            src="${post.media}"
+            class="col card-img-top"
+            alt="${post.title}"
+          /></div>
+            </a>
           </div>
-          <a href="../post.html?id=${post.id}">
-          <p class="card-text">${post.body}</p>
-          </a>
+          <div class="card-body">
+            <a href="#" class="card-link">like</a>
+            <a href="#" class="card-link">comment</a>
+          </div>
         </div>
-        <div class="card-body">
-          <a href="#" class="card-link">like</a>
-          <a href="#" class="card-link">comment</a>
-          <a href="#" class="card-link">Save</a>
-        </div>
-      </div>
-        `
+          `
+          } else if (post.author.name === localStorage.getItem("userName"), post.media !== "") {
+            outElement.innerHTML += `
+            <div class="mb-5 col-lg-6 card">
+            <div class="card-body">
+              <div class="pf-image-sm align-items-center p-1">
+                <img
+                  src="images/profilepic.png"
+                  class="col card-img-top"
+                  alt="profile_image"
+                />
+                <h5 class="col card-title p-2">${post.author.name}</h5>
+                <a href="../edit.html?id=${post.id}" >Edit</a>
+              </div>
+              <a href="../post.html?id=${post.id}">
+              <div>
+              <h4>${post.title}</h4>
+              <p class="card-text">${post.body}</p>
+              <img
+              src="${post.media}"
+              class="col card-img-top"
+              alt="${post.title}"
+            /></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <a href="#" class="card-link">like</a>
+              <a href="#" class="card-link">comment</a>
+            </div>
+          </div>
+            `
+          } else {
+            outElement.innerHTML += `
+            <div class="mb-5 col-lg-6 card">
+            <div class="card-body">
+              <div class="pf-image-sm align-items-center p-1">
+                <img
+                  src="images/profilepic.png"
+                  class="col card-img-top"
+                  alt="profile_image"
+                />
+                <h5 class="col card-title p-2">${post.author.name}</h5>
+                <a href="../edit.html?id=${post.id}" >Edit</a>
+              </div>
+              <a href="../post.html?id=${post.id}">
+              <div>
+              <h4>${post.title}</h4>
+              <p class="card-text">${post.body}</p>
+              </div>
+              </a>
+            </div>
+            <div class="card-body">
+              <a href="#" class="card-link">like</a>
+              <a href="#" class="card-link">comment</a>
+            </div>
+          </div>
+            `
+          }
     } catch (error) {
-        console.log(error);
-    }
-};
+      console.log(error);
+  }
+  }
 
 getPost();
 
@@ -77,10 +140,17 @@ async function deletePost(url) {
   console.log(response);
   const json = await response.json();
   post = json;
-  console.log(post);
+  // console.log(post);
+  document.referrer ? window.location = document.referrer : history.back() // source: https://benborgers.com/posts/js-back-and-refresh
   } catch (error) {
       console.log(error);
   }
 };
 
-deletePostBtn.addEventListener("click", (event) => {deletePost(deleteUrl)});
+deletePostBtn.addEventListener("click", (event) => {
+  if ( confirm("Are you sure you want to delete this post?") === true ) {
+    deletePost(deleteUrl)
+  } else {
+    console.log("canceled");
+  }
+});

@@ -11,7 +11,7 @@ let posts = "";
 const deleteBtn = document.querySelector("#delete-button");
 
 searchBar.addEventListener("keyup", (event) => {
-  console.log(searchBar.value);
+  // console.log(searchBar.value);
   filterPosts()});
 
 async function getWithToken(url) {
@@ -41,17 +41,16 @@ async function getWithToken(url) {
   }
 filterPosts();
 };
-
 getWithToken(postsUrl);
-
-
 
 async function filterPosts() {
   try {
     // console.log(posts);
     content.innerHTML = "";
     for(item of posts) {
-      if (searchBar.value === "" || item.author.name.startsWith(searchBar.value, 0)) {
+      // console.log(item);
+      if (searchBar.value === "" || item.author.name.toLowerCase().startsWith(searchBar.value, 0)) {
+        if (item.media !== "") {
         content.innerHTML += `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
@@ -62,39 +61,85 @@ async function filterPosts() {
               alt="profile_image"
             />
             <h5 class="col card-title p-2">${item.author.name}</h5>
-            <p>${item.created}</p>
           </div>
           <a href="../post.html?id=${item.id}">
+          <div>
+          <h4>${item.title}</h4>
           <p class="card-text">${item.body}</p>
+          <img
+          src="${item.media}"
+          class="col card-img-top"
+          alt="${item.title}"
+        /></div>
           </a>
         </div>
         <div class="card-body">
           <a href="#" class="card-link">like</a>
           <a href="#" class="card-link">comment</a>
-          <a href="#" class="card-link">Save</a>
         </div>
       </div>
         `
+        } else if (item.author.name === localStorage.getItem("userName") || item.author.name === localStorage.getItem("userName"), item.media !== "") {
+          content.innerHTML += `
+          <div class="mb-5 col-lg-6 card">
+          <div class="card-body">
+            <div class="pf-image-sm align-items-center p-1">
+              <img
+                src="images/profilepic.png"
+                class="col card-img-top"
+                alt="profile_image"
+              />
+              <h5 class="col card-title p-2">${item.author.name}</h5>
+            </div>
+            <a href="../post.html?id=${item.id}">
+            <div>
+            <h4>${item.title}</h4>
+            <p class="card-text">${item.body}</p>
+            <img
+            src="${item.media}"
+            class="col card-img-top"
+            alt="${item.title}"
+          /></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="#" class="card-link">like</a>
+            <a href="#" class="card-link">comment</a>
+          </div>
+        </div>
+          `
+        } else {
+          content.innerHTML += `
+          <div class="mb-5 col-lg-6 card">
+          <div class="card-body">
+            <div class="pf-image-sm align-items-center p-1">
+              <img
+                src="images/profilepic.png"
+                class="col card-img-top"
+                alt="profile_image"
+              />
+              <h5 class="col card-title p-2">${item.author.name}</h5>
+            </div>
+            <a href="../post.html?id=${item.id}">
+            <div>
+            <h4>${item.title}</h4>
+            <p class="card-text">${item.body}</p>
+            </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="#" class="card-link">like</a>
+            <a href="#" class="card-link">comment</a>
+          </div>
+        </div>
+          `
+        }
     } 
   }
   } catch (error) {
     console.log(error);
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getPfImg() {
   if (item.author.avatar === "") {
@@ -119,6 +164,7 @@ async function createPost(url, post) {
   console.log(response);
   const json = await response.json();
   console.log(json);
+  document.location.reload()
   } catch (error) {
     console.log(error);
   }
@@ -130,14 +176,24 @@ postBtn.addEventListener("click", (event) => {
 
 const title = postTitle.value.trim();
 const body = textArea.value.trim();
-// const media = postMedia.value.trim();
-console.log(title, body);
+const media = postMedia.value.trim();
+
+console.log(title, body, media);
+
+const noMediaToPost = {
+  title: title,
+  body: body,
+}
 
 const postToPost = {
   title: title,
   body: body,
-  // media: media,
+  media: media,
 }
 
-createPost(createPostUrl, postToPost);
+if (media !== "") {
+  createPost(createPostUrl, postToPost);
+} else {
+  createPost(createPostUrl, noMediaToPost);
+};
 });

@@ -2,6 +2,7 @@
 checkbox* do you wanna stay logged in? 
 - save token to localstorage or sessionstorage
 (or? save token to localstorage in registration, then get token later?)
+
 */
 
 const getEmail = document.querySelector("input#validationDefaultEmail");
@@ -33,23 +34,25 @@ async function loginUser(url, userData) {
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userName", userName);
+        loginForm.style.display = "none";
     } catch (error) {
         console.log(error);
+        /* Validering
+        error skrives ut her. "wrong password or email"
+         */
     } 
     try {
         mainContent.style.display = "block";
         header.style.display = "block";
-        loginForm.style.display = "none";
     } catch (error) {
         console.log(error);
     }
 };
 
 
-
 loginBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("You tried to login");
+    // console.log("You tried to login");
 
     const email = getEmail.value.trim();
     const password = getPassword.value.trim();
@@ -58,7 +61,6 @@ loginBtn.addEventListener("click", (event) => {
         email: email,
         password: password,
     }
-    // console.log(userToLogin);
     loginUser(loginUrl, userToLogin);
 });
 

@@ -32,6 +32,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <form class="d-flex" role="search">
                 <input
+                  id="search-bar"
                   class="form-control me-2"
                   type="search"
                   placeholder="Search"
@@ -60,7 +61,6 @@
               </li> -->
               <li>
                 <button type="button" id="logoutBtn">Log Out</button>
-                <a class="dropdown-item" href="index.html">Log out</a>
               </li>
             </ul>
           </div>
@@ -160,25 +160,42 @@
 
         <div class="mb-5">
           <div>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              placeholder="create new post"
-            ></textarea>
-            <div class="p-1 row">
-              <form class="col-2" action="/action_page.php">
-                <input type="file" id="myFile" name="filename" />
-                <input type="submit" />
-              </form>
-              <button type="button" class="col-3 btn btn-primary">Post</button>
-            </div>
+            <form class="p-2 col-12" action="/action_page.php">
+              <input
+                type="text"
+                class="form-control"
+                id="post-title"
+                placeholder="Title for your post"
+              />
+              <textarea
+                class="mb-2 mt-2 form-control"
+                id="message"
+                name="message"
+                rows="3"
+                placeholder="create new post"
+              ></textarea>
+              <input
+                type="text"
+                class="form-control"
+                id="post-media"
+                placeholder="Image Link"
+              />
+              <div class="p-2 row">
+                <button
+                  id="post-button"
+                  type="button"
+                  class="m-2 p-2 col-3 btn btn-primary"
+                >
+                  Post
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
         <div id="profile-container"></div>
 
-        <div class="col-md-3 d-none d-lg-block">
+        <!-- <div class="col-md-3 d-none d-lg-block">
           <h2 class="top-buffer">Friends</h2>
           <ul class="list-group">
             <li class="list-group-item">Winston Othar</li>
@@ -203,15 +220,10 @@
             <li class="list-group-item">Walter Brown</li>
             <li class="list-group-item">Jack Comeback</li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </main>
 
-    <script>
-      const mainContent = (document.querySelector("main").style.display =
-        "block");
-      const header = (document.querySelector("header").style.display = "block");
-    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
