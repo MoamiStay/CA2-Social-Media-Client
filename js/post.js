@@ -35,7 +35,7 @@ async function getPost() {
           <div class="card-body">
             <div class="pf-image-sm align-items-center p-1">
               <img
-                src="images/profilepic.png"
+                src=${getPfImg()}"
                 class="col card-img-top"
                 alt="profile_image"
               />
@@ -64,7 +64,7 @@ async function getPost() {
             <div class="card-body">
               <div class="pf-image-sm align-items-center p-1">
                 <img
-                  src="images/profilepic.png"
+                  src="${getPfImg()}"
                   class="col card-img-top"
                   alt="profile_image"
                 />
@@ -94,7 +94,7 @@ async function getPost() {
             <div class="card-body">
               <div class="pf-image-sm align-items-center p-1">
                 <img
-                  src="images/profilepic.png"
+                  src="${getPfImg()}"
                   class="col card-img-top"
                   alt="profile_image"
                 />
@@ -154,3 +154,11 @@ deletePostBtn.addEventListener("click", (event) => {
     console.log("canceled");
   }
 });
+
+function getPfImg() {
+  if (post.author.avatar === "") {
+    return "images/profilepic.png"
+  } else {
+    return post.author.avatar
+  }
+};

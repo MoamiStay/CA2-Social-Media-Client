@@ -11,7 +11,7 @@ let posts = "";
 const deleteBtn = document.querySelector("#delete-button");
 
 searchBar.addEventListener("keyup", (event) => {
-  // console.log(searchBar.value);
+  console.log(searchBar.value);
   filterPosts()});
 
 async function getWithToken(url) {
@@ -29,13 +29,16 @@ async function getWithToken(url) {
       const json = await response.json();
       posts = json;
       // console.log(json);
+      // loginForm.style.display = "none";
+      if (response.ok) {
+        console.log("Need to maybe fix something here?");
+      }
   } catch (error) {
       console.log(error);
   }
   try {
-      mainContent.style.display = "block";
-      header.style.display = "block";
-      loginForm.style.display = "none";
+      // mainContent.style.display = "block";
+      // header.style.display = "block";
   } catch (error) {
       console.log(error);
   }
@@ -56,7 +59,7 @@ async function filterPosts() {
         <div class="card-body">
           <div class="pf-image-sm align-items-center p-1">
             <img
-              src="images/profilepic.png"
+              src="${getPfImg()}"
               class="col card-img-top"
               alt="profile_image"
             />
@@ -85,7 +88,7 @@ async function filterPosts() {
           <div class="card-body">
             <div class="pf-image-sm align-items-center p-1">
               <img
-                src="images/profilepic.png"
+                src="${getPfImg()}"
                 class="col card-img-top"
                 alt="profile_image"
               />
@@ -114,7 +117,7 @@ async function filterPosts() {
           <div class="card-body">
             <div class="pf-image-sm align-items-center p-1">
               <img
-                src="images/profilepic.png"
+                src="${getPfImg()}"
                 class="col card-img-top"
                 alt="profile_image"
               />
@@ -196,4 +199,13 @@ if (media !== "") {
 } else {
   createPost(createPostUrl, noMediaToPost);
 };
+});
+
+logoutBtn.addEventListener("click", (event) => {
+  window.location.href ="../index.html";
+  // mainContent.style.display = "none";
+  // header.style.display = "none";
+  // loginForm.style.display = "block";
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("userName");
 });

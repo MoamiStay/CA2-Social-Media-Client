@@ -44,57 +44,85 @@ async function registerUser(url, userData) {
     }
 };
 
+let username = "";
+let email = "";
+let password = "";
+
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    // console.log("You clicked submit");
+
+    // const username = getUser.value.trim();
+    // const email = getEmail.value.trim();
+    // const password = getPass.value.trim();
+    // console.log(username, email, password);
+
+    // Email must end with noroff.no or stud.noroff.no + regEx validation
+    // username can't have any spaces + 3< characters
+    // password regEx validation
 
 
-/* VALIDATION 
 
 
-    if (getUser.value.trim() === moreThan3Charachters) {
-        const username = getUser.value
-    } else {
-        innerHTML = "Username must be more than 3 characters and not include any spaces"
-    };
+if (getUser.value.trim() !== "" && getEmail.value.trim() !== "" && getPass.value.trim() !== "") {
 
-    if (getEmail.value.trim() === regEx + last part of string is "noroff.no" or "stud.noroff.no") {
-        const email = getEmail.value.trim();
-    } else {
-        innerHTML = "Please enter valid mail"
-    };
-
-    if (getPass.value.trim() === regEx) {
-        const password = getPass.value.trim();
-    } else {
-        innerHTML = "Please enter valid password. Must include: ...."
-    };
-
-    if (username && email && password) {
-    const userToRegister = {
-        name: username,
-        email: email,
-        password: password,
-     } 
-    registerUser(registerUrl, userToRegister);
-    } else {
-        innerHTML = "Registration unsuccessful"
+    // username
+    if (getEmail.value.trim().toLowerCase().endsWith("stud.noroff.no") || getEmail.value.trim().toLowerCase().endsWith("noroff.no"))  {
+        return email = getEmail.value.trim();
     }
-});
 
-*/
 
-const username = getUser.value.trim();
-const email = getEmail.value.trim();
-const password = getPass.value.trim();
-console.log(username, email, password);
 
-const userToRegister = {
-    name: username,
-    email: email,
-    password: password,
-}
 
-registerUser(registerUrl, userToRegister);
+if (username === getUser.value.trim() || email === getEmail.value.trim() || password === getPass.value.trim()) {
+
+             const userToRegister = {
+                    name: username,
+                    email: email,
+                    password: password,
+                }
+                console.log(userToRegister);
+            // registerUser(registerUrl, userToRegister);
+
+} else {console.log("Registration input is invalid" + email)};
+} else {console.log("please fill out the form")};
+
+
+
+
+
+
+
+
+
+
+
+
+// if (username !== "" && email !== "" && password !== "") {
+
+//     // Email 
+//     if (email.toLowerCase().endsWith("stud.noroff.no") || email.toLowerCase().endsWith("noroff.no"))  {
+//         console.log("email is OK");
+//     } else { console.log("email is INVALID")};
+
+//     // Username
+//     if (username.toLowerCase().length > 2) {
+//         console.log("username is OK");
+//     } else { console.log("username is INVALID")};
+
+//     // Password
+//     if (password.length > 5) {
+//         console.log("password is OK");
+//     } else { console.log("password is INVALID")}
+
+//         const userToRegister = {
+//             name: username,
+//             email: email,
+//             password: password,
+//         }
+//         console.log("You created a user: " + username + email + password);
+//         // registerUser(registerUrl, userToRegister);
+//     } else {
+//         console.log("Please fill out the form correctly");
+//     }
 });

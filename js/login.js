@@ -4,12 +4,11 @@ checkbox* do you wanna stay logged in?
 (or? save token to localstorage in registration, then get token later?)
 
 */
-
 const getEmail = document.querySelector("input#validationDefaultEmail");
 const getPassword = document.querySelector("input#validationDefault01");
 const loginBtn = document.querySelector("button#submitBtn");
 const logoutBtn = document.querySelector("button#logoutBtn");
-const mainContent = document.querySelector("main");
+const loginContent = document.querySelector("#login-container");
 const header = document.querySelector("header");
 const loginForm = document.querySelector("section#login");
 const API_BASE_URL = "https://nf-api.onrender.com";
@@ -34,19 +33,14 @@ async function loginUser(url, userData) {
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userName", userName);
-        loginForm.style.display = "none";
+        if (response.ok) {
+        window.location.href = "../home-page.html";
+        } else {
+            loginContent.innerHTML = "Password or Email is invalid";
+        }
     } catch (error) {
         console.log(error);
-        /* Validering
-        error skrives ut her. "wrong password or email"
-         */
     } 
-    try {
-        mainContent.style.display = "block";
-        header.style.display = "block";
-    } catch (error) {
-        console.log(error);
-    }
 };
 
 
@@ -64,12 +58,4 @@ loginBtn.addEventListener("click", (event) => {
     loginUser(loginUrl, userToLogin);
 });
 
-
-logoutBtn.addEventListener("click", (event) => {
-    mainContent.style.display = "none";
-    header.style.display = "none";
-    loginForm.style.display = "block";
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("userName");
-});
 
