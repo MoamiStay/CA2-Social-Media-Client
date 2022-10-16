@@ -33,3 +33,6 @@ Fix chatbox
 STYLE ADJUSTMENTS:
 Fix user pf-pictures
 Add logo/name
+
+All RegEx er tatt fra:
+https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149

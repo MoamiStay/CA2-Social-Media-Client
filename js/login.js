@@ -46,7 +46,7 @@ async function loginUser(url, userData) {
 
 loginBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    // console.log("You tried to login");
+    loginContent.innerHTML = '<img src="../images/Spinner-1s-79px.gif">';
 
     const email = getEmail.value.trim();
     const password = getPassword.value.trim();
@@ -59,3 +59,9 @@ loginBtn.addEventListener("click", (event) => {
 });
 
 
+
+// momi15465@stud.noroff.no
+// 2266zany
+
+// regnaa15465@stud.noroff.no
+// 2266zanY

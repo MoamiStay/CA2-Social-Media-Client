@@ -29,16 +29,6 @@ async function getWithToken(url) {
       const json = await response.json();
       posts = json;
       // console.log(json);
-      // loginForm.style.display = "none";
-      if (response.ok) {
-        console.log("Need to maybe fix something here?");
-      }
-  } catch (error) {
-      console.log(error);
-  }
-  try {
-      // mainContent.style.display = "block";
-      // header.style.display = "block";
   } catch (error) {
       console.log(error);
   }
