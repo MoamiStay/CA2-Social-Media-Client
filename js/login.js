@@ -2,13 +2,13 @@
 checkbox* do you wanna stay logged in? 
 - save token to localstorage or sessionstorage
 (or? save token to localstorage in registration, then get token later?)
-*/
 
+*/
 const getEmail = document.querySelector("input#validationDefaultEmail");
 const getPassword = document.querySelector("input#validationDefault01");
 const loginBtn = document.querySelector("button#submitBtn");
 const logoutBtn = document.querySelector("button#logoutBtn");
-const mainContent = document.querySelector("main");
+const loginContent = document.querySelector("#login-container");
 const header = document.querySelector("header");
 const loginForm = document.querySelector("section#login");
 const API_BASE_URL = "https://nf-api.onrender.com";
@@ -33,23 +33,20 @@ async function loginUser(url, userData) {
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userName", userName);
+        if (response.ok) {
+        window.location.href = "../home-page.html";
+        } else {
+            loginContent.innerHTML = "Password or Email is invalid";
+        }
     } catch (error) {
         console.log(error);
     } 
-    try {
-        mainContent.style.display = "block";
-        header.style.display = "block";
-        loginForm.style.display = "none";
-    } catch (error) {
-        console.log(error);
-    }
 };
-
 
 
 loginBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("You tried to login");
+    loginContent.innerHTML = '<img src="../images/Spinner-1s-79px.gif">';
 
     const email = getEmail.value.trim();
     const password = getPassword.value.trim();
@@ -58,16 +55,13 @@ loginBtn.addEventListener("click", (event) => {
         email: email,
         password: password,
     }
-    // console.log(userToLogin);
     loginUser(loginUrl, userToLogin);
 });
 
 
-logoutBtn.addEventListener("click", (event) => {
-    mainContent.style.display = "none";
-    header.style.display = "none";
-    loginForm.style.display = "block";
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("userName");
-});
 
+// momi15465@stud.noroff.no
+// 2266zany
+
+// regnaa15465@stud.noroff.no
+// 2266zanY
