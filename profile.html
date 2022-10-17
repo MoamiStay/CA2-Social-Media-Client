@@ -7,13 +7,16 @@
     <title>Profile</title>
 
     <link rel="stylesheet" href="./css/custom.min.css" />
+    <!-- <script src="./js/post.js" defer></script> -->
+    <!-- <script src="./js/posts.js" defer></script> -->
+    <script src="./js/profile.js" defer></script>
   </head>
 
   <body class="container-lg">
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg bg-warning">
         <div class="container-fluid">
-          <a class="navbar-brand" href="home.html">logo</a>
+          <a class="navbar-brand" href="home-page.html">logo</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -26,46 +29,31 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse p-3" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <form class="d-flex" role="search">
                 <input
+                  id="search-bar"
                   class="form-control me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
               </form>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="home.html"
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="home-page.html"
                   >Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Discover</a>
+                <a class="nav-link active" href="profile.html">Profile</a>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="true"
-                >
-                  Profile
-                </a>
-                <ul class="dropdown-menu justify-content-end">
-                  <li>
-                    <a class="dropdown-item" href="profile.html">Profile</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Friends</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li>
-                    <a class="dropdown-item" href="index.html">Log out</a>
-                  </li>
-                </ul>
+              <li>
+                <button type="button" class="btn btn-warning" id="logoutBtn">
+                  Log out
+                </button>
               </li>
             </ul>
           </div>
@@ -75,15 +63,17 @@
 
     <main>
       <div class="row justify-content-between">
+
+        <section>
         <div class="col-lg-6">
           <div class="card mb-5 top-buffer">
             <div class="pf-image p-3">
               <img
-                src="images/profilepic.png"
+                src=""
                 class="card-img-top rounded"
                 alt="pf_image"
               />
-              <h5 class="card-title p-3">Username</h5>
+              <h5 id="my-name" class="card-title p-3">Username</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Status...</li>
@@ -100,202 +90,46 @@
               <a href="#" class="card-link">@my_website</a>
             </div>
           </div>
+        </div>
 
-          <div class="mb-5">
-            <div>
-              <textarea
+        <div class="mb-5 col-lg-6">
+          <div>
+            <form class="p-2 col-12" action="/action_page.php">
+              <input
+                type="text"
                 class="form-control"
-                id="exampleFormControlTextarea1"
+                id="post-title"
+                placeholder="Title for your post"
+              />
+              <textarea
+                class="mb-2 mt-2 form-control"
+                id="message"
+                name="message"
                 rows="3"
                 placeholder="create new post"
               ></textarea>
-              <div class="p-1 row">
-                <p class="col-2">image</p>
-                <p class="col-6">link</p>
-                <button type="button" class="col-3 btn btn-primary">
+              <input
+                type="text"
+                class="form-control"
+                id="post-media"
+                placeholder="Image Link"
+              />
+              <div class="p-2 row">
+                <button
+                  id="post-button"
+                  type="button"
+                  class="m-2 p-2 col-3 btn btn-primary"
+                >
                   Post
                 </button>
               </div>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
-          </div>
-
-          <div class="mb-5 card">
-            <div class="card-body">
-              <div>
-                <div class="pf-image-sm align-items-center p-1">
-                  <img
-                    src="images/profilepic.png"
-                    class="col card-img-top"
-                    alt="profile_image"
-                  />
-                  <h5 class="col card-title p-2">Poster</h5>
-                </div>
-              </div>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <img src="..." class="card-img-top" alt="content_image" />
-            </div>
-            <div class="card-body">
-              <a href="#" class="card-link">like</a>
-              <a href="#" class="card-link">comment</a>
-              <a href="#" class="card-link">Save</a>
-            </div>
+            </form>
           </div>
         </div>
 
-        <div class="col-md-3 d-none d-lg-block">
+        <div id="profile-container"></div>
+
+        <!-- <div class="col-md-3 d-none d-lg-block">
           <h2 class="top-buffer">Friends</h2>
           <ul class="list-group">
             <li class="list-group-item">Winston Othar</li>
@@ -320,7 +154,7 @@
             <li class="list-group-item">Walter Brown</li>
             <li class="list-group-item">Jack Comeback</li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </main>
 

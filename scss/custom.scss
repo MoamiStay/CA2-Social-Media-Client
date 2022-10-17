@@ -1,34 +1,37 @@
-
 // $black:    rgb(0, 0, 0) !default;
 
-
 $warning: rgb(254, 233, 198);
-$primary: rgb(236, 157, 46);
+$primary: rgb(206, 151, 55);
 
 .navbar-collapse {
-    flex-basis: 100%;
-    flex-grow: 0; 
+  flex-basis: 100%;
+  flex-grow: 0;
 }
 
 .login-box {
-    max-width: 600px;
-    min-height: 600px;
+  max-width: 600px;
+  min-height: 600px;
 }
 
 .pf-image {
-    max-width: 8rem;
-    display: flex;
+  max-width: 8rem;
+  display: flex;
 }
 
 .pf-image-sm {
-    max-width: 3rem;
-    display: flex;
+  max-width: 3rem;
+  display: flex;
 }
 
+.top-buffer {
+  margin-top: 20px;
+}
 
-.top-buffer { margin-top:20px; }
+a div h4,
+a div p,
+a {
+  text-decoration-line: none;
+  color: black;
+}
 
-
-
-@import"../node_modules/bootstrap/scss/bootstrap";
-
+@import "../node_modules/bootstrap/scss/bootstrap";

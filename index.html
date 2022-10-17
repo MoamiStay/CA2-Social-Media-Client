@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Home</title>
 
     <link rel="stylesheet" href="./css/custom.min.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="./js/login.js" defer></script>
+    <!-- <script src="./js/utils.mjs" type="module" defer></script> -->
   </head>
   <body>
-    <main>
+    <section id="login">
       <div class="container p-3 login-box align-items-center mt-5">
         <form class="col-md-5 mt-5">
           <div>
             <label for="validationDefaultUsername" class="form-label"
-              >Username</label
+              >Email</label
             >
             <div class="input-group">
-              <span class="input-group-text" id="inputGroupPrepend2">@</span>
               <input
-                type="text"
+                type="email"
                 class="form-control"
-                id="validationDefaultUsername"
-                aria-describedby="inputGroupPrepend2"
+                id="validationDefaultEmail"
                 required
               />
             </div>
@@ -38,22 +41,21 @@
               required
             />
             <div class="row justify-content-between">
-              <p class="col">Registrer</p>
-              <p class="col">Forgot password</p>
+              <a href="registrate.html" class="col">Sign up</a>
             </div>
           </div>
 
           <div class="col-12">
-            <a href="home.html"
-              ><button class="btn btn-primary" type="submit">
-                submit form
+            <a href="index.html"
+              ><button class="btn btn-primary" id="submitBtn" type="submit">
+                Log In
               </button></a
             >
-            <a href="home.html" class="btn btn-primary">Log In</a>
           </div>
         </form>
       </div>
-    </main>
+      <div id="login-container"></div>
+    </section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
