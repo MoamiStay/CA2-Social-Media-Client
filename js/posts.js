@@ -43,7 +43,7 @@ async function filterPosts() {
     for(item of posts) {
       // console.log(item);
       if (searchBar.value === "" || item.author.name.toLowerCase().startsWith(searchBar.value, 0)) {
-        if (item.media !== "") {
+        if (item.media !== null) {
         content.innerHTML += `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
@@ -72,7 +72,7 @@ async function filterPosts() {
         </div>
       </div>
         `
-        } else if (item.author.name === localStorage.getItem("userName") || item.author.name === localStorage.getItem("userName"), item.media !== "") {
+        } else if (item.author.name === localStorage.getItem("userName") || item.author.name === localStorage.getItem("userName"), item.media !== null) {
           content.innerHTML += `
           <div class="mb-5 col-lg-6 card">
           <div class="card-body">
@@ -135,10 +135,10 @@ async function filterPosts() {
 }
 
 function getPfImg() {
-  if (item.author.avatar === "") {
-    return "images/profilepic.png"
+  if (item.author.avatar === null) {
+    return "../images/profilepic.png";
   } else {
-    return item.author.avatar
+    return item.author.avatar;
   }
 };
 
@@ -154,9 +154,9 @@ async function createPost(url, post) {
       body: JSON.stringify(post),
   };
   const response = await fetch(url, postData);
-  console.log(response);
+  // console.log(response);
   const json = await response.json();
-  console.log(json);
+  // console.log(json);
   document.location.reload()
   } catch (error) {
     console.log(error);
@@ -193,9 +193,6 @@ if (media !== "") {
 
 logoutBtn.addEventListener("click", (event) => {
   window.location.href ="../index.html";
-  // mainContent.style.display = "none";
-  // header.style.display = "none";
-  // loginForm.style.display = "block";
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userName");
 });

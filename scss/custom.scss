@@ -27,4 +27,11 @@ $primary: rgb(206, 151, 55);
   margin-top: 20px;
 }
 
+a div h4,
+a div p,
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
 @import "../node_modules/bootstrap/scss/bootstrap";
