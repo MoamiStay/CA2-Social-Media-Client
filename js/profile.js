@@ -1,5 +1,6 @@
 const username = localStorage.getItem("userName");
 const myName  = document.querySelector("#my-name");
+const pfImage = document.querySelector(".pf-image>img");
 const title = document.querySelector("title");
 const postBtn = document.querySelector("#post-button");
 const postTitle = document.querySelector("#post-title");
@@ -26,6 +27,11 @@ async function getUser(url) {
         // console.log(json);
         title.innerHTML = json.name;
         myName.innerHTML = json.name;
+        if (json.avatar === null) {
+          return pfImage.src = "../images/profilepic.png";
+        } else {
+          return pfImage.src = json.avatar;
+        }
     } catch (error) {
         console.log(error);
     } 
@@ -62,13 +68,13 @@ async function getWithToken(url) {
         // console.log(posts);
         for(item of posts) {
           if (item.author.name === localStorage.getItem("userName")) {
-            if (item.media !== "") {
+            if (item.media !== null) {
             profileContent.innerHTML += `
             <div class="mb-5 col-lg-6 card">
             <div class="card-body">
               <div class="pf-image-sm align-items-center p-1">
                 <img
-                  src="images/profilepic.png"
+                  src="${getPfImg()}"
                   class="col card-img-top"
                   alt="profile_image"
                 />
@@ -97,7 +103,7 @@ async function getWithToken(url) {
             <div class="card-body">
               <div class="pf-image-sm align-items-center p-1">
                 <img
-                  src="images/profilepic.png"
+                  src="${getPfImg()}"
                   class="col card-img-top"
                   alt="profile_image"
                 />
@@ -174,6 +180,14 @@ async function getWithToken(url) {
     createPost(createPostUrl, noMediaToPost);
   };
   });
+
+  function getPfImg() {
+    if (item.author.avatar === null) {
+      return "../images/profilepic.png"
+    } else {
+      return item.author.avatar
+    }
+  };
 
 //   logoutBtn.addEventListener("click", (event) => {
 //     localStorage.removeItem("accessToken");

@@ -5,8 +5,10 @@ const editMedia = document.querySelector("#edit-media");
 
 let params = new URLSearchParams(document.location.search);
 let id = params.get("id");
+console.log(id);
 
 const editPostUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
+console.log(editPostUrl);
 
 async function editPost(url, post) {
   try {
@@ -20,9 +22,9 @@ async function editPost(url, post) {
       body: JSON.stringify(post),
   };
   const response = await fetch(url, postData);
-//   console.log(response);
+  console.log(response);
   const json = await response.json();
-//   console.log(json);
+  console.log(json);
   } catch (error) {
     console.log(error);
   }
@@ -44,6 +46,7 @@ const postToEdit = {
   // media: media,
 }
 editPost(editPostUrl, postToEdit);
+  document.location.href ="../profile.html";
 });
 
 
