@@ -43,7 +43,7 @@ async function filterPosts() {
     for(item of posts) {
       // console.log(item);
       if (searchBar.value === "" || item.author.name.toLowerCase().startsWith(searchBar.value, 0)) {
-        if (item.media !== null) {
+        if (item.media !== "") {
         content.innerHTML += `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
@@ -72,7 +72,7 @@ async function filterPosts() {
         </div>
       </div>
         `
-        } else if (item.author.name === localStorage.getItem("userName") || item.author.name === localStorage.getItem("userName"), item.media !== null) {
+        } else if (item.author.name === localStorage.getItem("userName") || item.author.name === localStorage.getItem("userName"), item.media !== "") {
           content.innerHTML += `
           <div class="mb-5 col-lg-6 card">
           <div class="card-body">
@@ -135,7 +135,7 @@ async function filterPosts() {
 }
 
 function getPfImg() {
-  if (item.author.avatar === null) {
+  if (item.author.avatar === "") {
     return "../images/profilepic.png";
   } else {
     return item.author.avatar;
