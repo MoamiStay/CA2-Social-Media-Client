@@ -27,7 +27,7 @@ async function getUser(url) {
         // console.log(json);
         title.innerHTML = json.name;
         myName.innerHTML = json.name;
-        if (json.avatar === null) {
+        if (json.avatar === "") {
           return pfImage.src = "../images/profilepic.png";
         } else {
           return pfImage.src = json.avatar;
@@ -68,7 +68,7 @@ async function getWithToken(url) {
         // console.log(posts);
         for(item of posts) {
           if (item.author.name === localStorage.getItem("userName")) {
-            if (item.media !== null) {
+            if (item.media !== "") {
             profileContent.innerHTML += `
             <div class="mb-5 col-lg-6 card">
             <div class="card-body">
@@ -182,17 +182,15 @@ async function getWithToken(url) {
   });
 
   function getPfImg() {
-    if (item.author.avatar === null) {
+    if (item.author.avatar === "") {
       return "../images/profilepic.png"
     } else {
       return item.author.avatar
     }
   };
 
-//   logoutBtn.addEventListener("click", (event) => {
-//     localStorage.removeItem("accessToken");
-//     localStorage.removeItem("userName");
-//     loginForm.style.display = "block";
-//     window.location.href = "../index.html";
-//     return mainContent.style.display = "none", header.style.display = "none";
-// });
+logoutBtn.addEventListener("click", (event) => {
+  window.location.href ="../index.html";
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("userName");
+});

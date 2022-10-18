@@ -36,7 +36,7 @@ async function getPost() {
       } else { //
        }
       // console.log(posts);
-      if (post.author.name === localStorage.getItem("userName") && post.media !== null) {
+      if (post.author.name === localStorage.getItem("userName") && post.media !== "") {
         outElement.innerHTML += `
         <div class="mb-5 col-lg-6 card">
         <div class="card-body">
@@ -96,7 +96,7 @@ async function getPost() {
           </div>
         </div>
           `
-          } else if (post.media !== null) {
+          } else if (post.media !== "") {
             outElement.innerHTML += `
             <div class="mb-5 col-lg-6 card">
             <div class="card-body">
@@ -193,7 +193,7 @@ deletePostBtn.addEventListener("click", (event) => {
 });
 
 function getPfImg() {
-  if (post.author.avatar === null) {
+  if (post.author.avatar === "") {
     return "../images/profilepic.png"
   } else {
     return post.author.avatar
