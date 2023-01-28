@@ -1,6 +1,6 @@
 # CA2-FED2 - Social Media Client
 
-![SNS homepage](./media/social-media.jpg "SNS homepage")  
+![SNS homepage](./images/social-media.jpg "SNS homepage")  
 [Visit deployed site here](https://socialmedia-main-head.netlify.app "SNS homepage") 
 
 ---
@@ -31,20 +31,21 @@ At least I managed to implement all required functionality, but some features I 
 * The "edit" button was working perfectly some time earlier, but during last testing there seems to be some issues with it where it works sometimes but not always. Did not have time to figure this out.  
 * "like" and "comment" buttons does not work. I would've liked to implement this functionality as well. And the option to change profile picture.  
 
-**Modules:**
+**Modules:**  
 I had planned on cleaning up the code and organizing some of the js code using modules, however I ran out of time.  
 There might be unused code that is commented out left in the files, I was going to clean this up but didn't have time.  
 Some of the functions I would've liked to use as modules:  
 get the posts and list them out. To do this I would've tried to add a third parameter that could be used to alter the method; "POST", "PUT", "DELETE", "GET".  
 
-**Styling:**
-There is a lot of missing styling that I would want to add.
+**Styling:**  
+There is **a lot** of missing styling that I would want to add. Some of it being:
 
-*Making the nav more appealing by placing "home", "profile" and "log out" to the far right, as well as adding a small profile image next to "profile".  
+* Making the nav-bar more appealing by placing "home", "profile" and "log out" to the far right, as well as adding a small profile image next to "profile".  
 * Colors could be improved.  
 * The content of the listed posts have a orange underline that should've been removed.  
 * The "create new post" form should've been more "whole" instead of 3 seperate input fields.  
-* In the validation for login and register the error messages should be colored red.  
+* In the validation for login and register the error messages should be colored red. 
+* At login page the login-error message appears down in the bottom corner. It should be more visible and placed in the center.
 
 ---
 
